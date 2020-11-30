@@ -1,4 +1,3 @@
-{% extends 'layouts/default/page.html' %}
 {% load i18n %}
 
 {% load static %}
@@ -48,6 +47,15 @@
           <div></div>
       </div>
   </div>
+  <div class="container-fluid mt-2">
+
+      {% if request.user.is_authenticated %}
+      {% bootstrap_messages %}
+          {% else %}
+
+            {% endif %}
+
+  </div>
 
 
 
@@ -76,27 +84,30 @@
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
                           <li><a href="/"  class="active">{% trans 'Home' %}</a></li>
-                          <li><a href="/">About</a></li>
-                          <li><a href="/">Sample Question</a></li>
-                          <li><a href="/">Testimonials</a></li>
-                          <li><a href="/">Pricing Tables</a></li>
-                          <li><a href="/">Blog Entries</a></li>
-                          <li><a href="/">Contact Us</a></li>
+                            {% if request.user.is_authenticated %}
+                            {%else%}
+                          <li><a href="#features">About</a></li>
+                          {%endif%}
+                          {% if request.user.is_authenticated %}
+                            <li><a href="#work-process">Question</a></li>
+                          {%else%}
+                          <li><a href="#work-process">Sample Question</a></li>
+                            {%endif%}
+                          <li><a href="#testimonials">Testimonials</a></li>
+                          <li><a href="#pricing-plans">Pricing Tables</a></li>
+                          <li><a href="#blog">Blog Entries</a></li>
+                          <li><a href="#contact-us">Contact Us</a></li>
 
 
                               {% if request.user.is_authenticated %}
-
                                   <li >
-                                      <a class="nav-link" href="{% url 'accounts:change_password' %}">{% trans 'Change password' %}</a>
+                                      <a  href="{% url 'accounts:change_password' %}">{% trans 'Settings' %}</a>
                                   </li>
                                   <li >
-                                      <a class="nav-link" href="{% url 'accounts:change_profile' %}">{% trans 'Change profile' %}</a>
+                                      <a  href="/">{% trans 'Hi,' %}{{ request.user.username }}</a>
                                   </li>
                                   <li >
-                                      <a class="nav-link" href="{% url 'accounts:change_email' %}">{% trans 'Hi,' %} {{ request.user.username }} </a>
-                                  </li>
-                                  <li >
-                                      <a class="nav-link" href="{% url 'accounts:log_out' %}">{% trans 'Log out' %}</a>
+                                      <a  href="{% url 'accounts:log_out' %}">{% trans 'Log out' %}</a>
                                   </li>
                               {% else %}
                                   <li >
@@ -106,10 +117,6 @@
                                       <a  href="{% url 'accounts:sign_up' %}">{% trans 'Signup' %}</a>
                                   </li>
                               {% endif %}
-
-
-
-
 
 
                       </ul>
@@ -126,6 +133,10 @@
   <!-- ***** Header Area End ***** -->
 
   <!-- ***** Welcome Area Start ***** -->
+
+  {% if request.user.is_authenticated %}
+
+  {%else%}
   <div class="welcome-area" id="welcome">
 
       <!-- ***** Header Text Start ***** -->
@@ -133,6 +144,7 @@
           <div class="container">
               <div class="row">
                   <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
+
                       <h1>Be a part of your <br><strong>dream company</strong> by solving <br><strong>one problem a day</strong></h1>
                       <p>Forget about grinding everyday on coding websites for your
                 interviews. Join InterviewChimp to ace the interviews for your
@@ -255,8 +267,86 @@
           </div>
       </div>
   </section>
+{%endif%}
+
+
+
   <!-- ***** Features Big Item End ***** -->
 
+  {% if request.user.is_authenticated %}
+  <!-- <section class="mini" id="work-process" >
+      <div class="mini-content" style='top:80px'>
+          <div class="container">
+              <div class="row">
+                  <div class="offset-lg-3 col-lg-6">
+                      <div class="info">
+                          <h1>Here's the Question for the Day</h1>
+                          <p>
+<strong>
+You are given an m x n integer grid accounts where accounts[i][j] is the amount of money the i​​​​​​​​​​​th​​​​ customer has in the j​​​​​​​​​​​th​​​​ bank. Return the wealth that the richest customer has.
+A customer's wealth is the amount of money they have in all their bank accounts. The richest customer is the customer that has the maximum wealth.
+</strong>
+<hr>
+<strong>
+Example 1:
+</strong>
+<p>
+Input: accounts = [[1,2,3],[3,2,1]]
+</p>
+Output: 6
+<p>
+Explanation:
+1st customer has wealth = 1 + 2 + 3 = 6
+2nd customer has wealth = 3 + 2 + 1 = 6
+Both customers are considered the richest with a wealth of 6 each, so return 6.
+</p>
+<hr>
+<strong>
+Example 2:
+</strong>
+<p>
+Input: accounts = [[1,5],[7,3],[3,5]]
+</p>
+Output: 10
+<p>
+Explanation:
+1st customer has wealth = 6
+2nd customer has wealth = 10
+3rd customer has wealth = 8
+The 2nd customer is the richest with a wealth of 10.
+</p>
+<hr>
+<strong>
+Example 3:
+</strong>
+<p>
+Input: accounts = [[2,8,7],[7,1,3],[1,9,5]]
+</p>
+Output: 17
+
+<hr>
+<strong>
+Constraints:
+</strong>
+m == accounts.length
+n == accounts[i].length
+1 <= m, n <= 50
+1 <= accounts[i][j] <= 100
+</p>
+                      </div>
+                  </div>
+              </div>
+
+
+
+</section> -->
+
+
+<div>
+{{request.question}}
+</div>
+
+  {%else%}
   <!-- ***** Home Parallax Start ***** -->
   <section class="mini" id="work-process">
       <div class="mini-content">
@@ -357,6 +447,8 @@ n == accounts[i].length
           </div>
       </div>
   </section>
+
+  {%endif%}
   <!-- ***** Home Parallax End ***** -->
 
   <!-- ***** Testimonials Start ***** -->

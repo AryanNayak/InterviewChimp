@@ -72,6 +72,9 @@ EMAIL_HOST_PASSWORD ='interviewChimp69'
 EMAIL_PORT = 587
 
 
+QUESTION = ''
+
+
 
 
 

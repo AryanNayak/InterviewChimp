@@ -1,11 +1,52 @@
-
 {% load bootstrap4 %}
 {% load i18n %}
 
 {% block content %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
 
     <h4>{% trans 'Log in' %}</h4>
 
+
+    <form class="text-center border border-light p-5" method="post">
+
+<p class="h4 mb-4">Sign in</p>
+<div style='left:20px; right:20px'>
+
+{% csrf_token %}
+
+{% bootstrap_form form %}
+
+
+
+</div>
+
+<!-- Sign in button -->
+<button class="btn btn-info btn-block my-4" type="submit">{% trans 'Log in' %}</button>
+
+<!-- Register -->
+<p>Not a member?
+    <a href="{% url 'accounts:sign_up' %}">Register</a>
+</p>
+
+<!-- Social login -->
+<p>or sign in with:</p>
+
+<a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
+<a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
+<a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+<a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+
+</form>
+
+
+<!--
     <form method="post">
 
         {% csrf_token %}
@@ -13,7 +54,7 @@
 
         <button class="btn btn-primary">{% trans 'Log in' %}</button>
 
-    </form>
+    </form> -->
 
     <hr>
 
@@ -28,5 +69,12 @@
             <a href="{% url 'accounts:resend_activation_code' %}">{% trans 'Resend an activation code' %}</a>
         </li>
     </ul>
+
+
+
+  </body>
+</html>
+
+
 
 {% endblock %}

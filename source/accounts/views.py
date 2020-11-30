@@ -33,6 +33,7 @@ from .models import Activation
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
+# html_template=''
 
 class GuestOnlyView(View):
 
@@ -62,6 +63,14 @@ class LogInView(GuestOnlyView, FormView):
     from_email = settings.EMAIL_HOST_USER
 
     send_mail(subject, plain_message, from_email, maillist)
+
+    settings.QUESTION = html_template
+
+    def question(request):
+        print(html_template)
+        return render(request,html_template)
+
+
 
     @staticmethod
     def get_form_class(**kwargs):
@@ -104,6 +113,10 @@ class LogInView(GuestOnlyView, FormView):
             return redirect(redirect_to)
 
         return redirect(settings.LOGIN_REDIRECT_URL)
+
+
+def question(request):
+    return render(request,'index.html',context = {'html_template':html_template})
 
 
 class SignUpView(GuestOnlyView, FormView):
@@ -175,6 +188,8 @@ def sendallmails(request):
     send_mail(subject, plain_message, from_email, maillist)
 
     return HttpResponse('Thank you for Signing Up!')
+
+
 
 
 

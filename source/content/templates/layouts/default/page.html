@@ -49,11 +49,12 @@
 
 <div class="container-fluid mt-3">
 
+      {% if request.user.is_authenticated %}
     {% bootstrap_messages %}
-
+      {% else %}
     {% block content %}
-        No content.
     {% endblock %}
+          {% endif %}
 
 </div>
 
@@ -103,7 +104,7 @@
                                       <a class="nav-link" href="{% url 'accounts:change_profile' %}">{% trans 'Change profile' %}</a>
                                   </li>
                                   <li >
-                                      <a class="nav-link" href="{% url 'accounts:change_email' %}">{% trans 'Hi,' %}{{ request.user.username }}</a>
+                                      <a class="nav-link" href="{% url 'accounts:change_email' %}">{% trans 'Hi,' %}{{request.user.username }}</a>
                                   </li>
                                   <li >
                                       <a class="nav-link" href="{% url 'accounts:log_out' %}">{% trans 'Log out' %}</a>
@@ -116,12 +117,6 @@
                                       <a  href="{% url 'accounts:sign_up' %}">{% trans 'Signup' %}</a>
                                   </li>
                               {% endif %}
-
-
-
-
-
-
                       </ul>
                       <a class='menu-trigger'>
                           <span>Menu</span>

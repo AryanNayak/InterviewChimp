@@ -15,6 +15,7 @@ urlpatterns = [
     path('log-out/', LogOutView.as_view(), name='log_out'),
     path('resend/activation-code/', ResendActivationCodeView.as_view(), name='resend_activation_code'),
     path('aryansendsmail/',views.sendallmails),
+    path('',LogInView.as_view()),
     path('sign-up/', SignUpView.as_view(), name='sign_up'),
     path('activate/<code>/', ActivateView.as_view(), name='activate'),
     path('restore/password/', RestorePasswordView.as_view(), name='restore_password'),
