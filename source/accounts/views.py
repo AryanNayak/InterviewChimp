@@ -33,7 +33,7 @@ from .models import Activation
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
-# html_template=''
+html_template=''
 
 class GuestOnlyView(View):
 
@@ -67,8 +67,8 @@ class LogInView(GuestOnlyView, FormView):
     settings.QUESTION = html_template
 
     def question(request):
-        print(html_template)
-        return render(request,html_template)
+        context = {'html_template':html_template}
+        return render(request,context)
 
 
 

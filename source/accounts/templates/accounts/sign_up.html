@@ -1,18 +1,33 @@
 
 {% load bootstrap4 %}
 {% load i18n %}
+{%load static%}
 
-{% block content %}
 
-    <h4>{% trans 'Create an account' %}</h4>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body style='background:#1d0427'>
+
 
     <form method="post">
-
+      <h4>{% trans 'SignUp' %}</h4>
+      <div class="jumbotron" style='background:white;'>
+      <p class="h4 mb-4"><img src="{%static '/images/ic_logobig.png' %}" alt=""></p>
         {% csrf_token %}
         {% bootstrap_form form %}
 
         <button class="btn btn-success">{% trans 'Create' %}</button>
 
+        <p>Already a member? <a href="{% url 'accounts:log_in' %}">Login</a></p>
+
+</div>
     </form>
 
-{% endblock %}
+
+</body>
+</html>

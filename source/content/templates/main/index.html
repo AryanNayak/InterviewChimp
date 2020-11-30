@@ -23,7 +23,7 @@
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 
 
-  <link href="{% static 'https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900' %}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
 
 
 
@@ -274,7 +274,7 @@
   <!-- ***** Features Big Item End ***** -->
 
   {% if request.user.is_authenticated %}
-  <!-- <section class="mini" id="work-process" >
+  <section class="mini" id="work-process" >
       <div class="mini-content" style='top:80px'>
           <div class="container">
               <div class="row">
@@ -339,11 +339,11 @@ n == accounts[i].length
 
 
 
-</section> -->
+</section>
 
 
 <div>
-{{request.question}}
+{{request.question.html_template}}
 </div>
 
   {%else%}
@@ -491,7 +491,7 @@ n == accounts[i].length
                           <i><img src="{% static '/images/testimonial-icon.png' %}" alt=""></i>
                           <p>I got offers for internships at Amazon and Apple! Thanks for the great resource — I loved the questions!.</p>
                           <div class="user-image">
-                              <img src="{% static 'http://placehold.it/60x60' %}" alt="">
+                              <img src="" alt="">
                           </div>
                           <div class="team-info">
                               <h3 class="user-name">Eileen</h3>
@@ -656,7 +656,7 @@ n == accounts[i].length
 
                           For example, we can store a list of items having the same data-type using the array data structure.
                                                   </div>
-                          <a href="{%static 'https://www.geeksforgeeks.org/data-structures/' %}" class="main-button">Read More</a>
+                          <a href="https://www.geeksforgeeks.org/data-structures/" class="main-button">Read More</a>
                       </div>
                   </div>
               </div>
@@ -676,7 +676,7 @@ n == accounts[i].length
                  2) Average Case
                  3) Best Case
                           </div>
-                          <a href="{static '%https://www.geeksforgeeks.org/analysis-of-algorithms-set-2-asymptotic-analysis/' static%}" class="main-button">Read More</a>
+                          <a href="%https://www.geeksforgeeks.org/analysis-of-algorithms-set-2-asymptotic-analysis/" class="main-button">Read More</a>
                       </div>
                   </div>
               </div>
@@ -692,7 +692,7 @@ n == accounts[i].length
                           <div class="text">
                             The World's Leading Programming Learning Website for testing your proramming skill.
                           </div>
-                          <a href="% static 'https://leetcode.com/' %" class="main-button">Read More</a>
+                          <a href="https://leetcode.com/" class="main-button">Read More</a>
                       </div>
                   </div>
               </div>

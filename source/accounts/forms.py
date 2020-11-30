@@ -51,10 +51,8 @@ class SignInViaUsernameForm(SignIn):
         if not user:
             raise ValidationError(_('You entered an invalid username.'))
 
-        if not user.is_active:
-            raise ValidationError(_('This account is not active.'))
 
-        self.user_cache = user
+        # self.user_cache = user
 
         return username
 
@@ -75,8 +73,6 @@ class SignInViaEmailForm(SignIn):
         if not user:
             raise ValidationError(_('You entered an invalid email address.'))
 
-        if not user.is_active:
-            raise ValidationError(_('This account is not active.'))
 
         self.user_cache = user
 
@@ -99,8 +95,6 @@ class SignInViaEmailOrUsernameForm(SignIn):
         if not user:
             raise ValidationError(_('You entered an invalid email address or username.'))
 
-        if not user.is_active:
-            raise ValidationError(_('This account is not active.'))
 
         self.user_cache = user
 
@@ -112,7 +106,7 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = settings.SIGN_UP_FIELDS
 
-    email = forms.EmailField(label=_('Email'), help_text=_('Required. Enter an existing email address.'))
+    email = forms.EmailField(label=_('Email'), help_text=_(''))
 
     def clean_email(self):
         email = self.cleaned_data['email']
@@ -186,9 +180,7 @@ class RestorePasswordForm(UserCacheMixin, forms.Form):
         if not user:
             raise ValidationError(_('You entered an invalid email address.'))
 
-        if not user.is_active:
-            raise ValidationError(_('This account is not active.'))
-
+    
         self.user_cache = user
 
         return email
@@ -204,8 +196,6 @@ class RestorePasswordViaEmailOrUsernameForm(UserCacheMixin, forms.Form):
         if not user:
             raise ValidationError(_('You entered an invalid email address or username.'))
 
-        if not user.is_active:
-            raise ValidationError(_('This account is not active.'))
 
         self.user_cache = user
 
@@ -246,9 +236,6 @@ class RemindUsernameForm(UserCacheMixin, forms.Form):
         user = User.objects.filter(email__iexact=email).first()
         if not user:
             raise ValidationError(_('You entered an invalid email address.'))
-
-        if not user.is_active:
-            raise ValidationError(_('This account is not active.'))
 
         self.user_cache = user
 
