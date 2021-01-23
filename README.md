@@ -1,28 +1,28 @@
 # InterviewChimp
 
 InterviewChimp is a mailing service made for the people who want to fast track their tech career and be in the top tier -1 companies through Daily Algorithmic Question Solving. Here, we believe in 1% improvement of our users, thus sending one interview question daily from the Top-tier companies.  Every user has an option to take plans from: 
-Free 
+## Free 
 	i. Feature: a. 1 Question Daily
-Premium 
+## Premium 
 	i. Feature: a. 1 Question Daily
 		          b. Solution
 		          c. Curated Interview Question List
-Advanced 
+## Advanced 
 	i. Feature: a. 1 Question Daily
-		     b. Solutions
-		     c. Curated Interview Question List
-		      d. 1-hour doubt support everyday
-		      e. Interview Plans
+		    b. Solutions
+		    c. Curated Interview Question List
+		    d. 1-hour doubt support everyday
+		    e. Interview Plans
  
 
 ## KEY FEATURES OF THE PROJECT: 
-1.User Authentication System
-2.Login/Logout/SignUp
-3.Setting: Reset Username/Reset Password/Reset Email/Reset Email Links
-4.Mailing Service to all the users ( Sending a question daily through interviewchimp@gmail.com)
-5.Showing the Question received when the user is logged in 
-6.Django admin panel contro
-7.Suggesting Resources to Study (Blogs) 
+### 1.User Authentication System
+### 2.Login/Logout/SignUp
+### 3.Setting: Reset Username/Reset Password/Reset Email/Reset Email Links
+### 4.Mailing Service to all the users ( Sending a question daily through interviewchimp@gmail.com)
+### 5.Showing the Question received when the user is logged in 
+### 6.Django admin panel contro
+### 7.Suggesting Resources to Study (Blogs) 
 
 
 # Technology: 
