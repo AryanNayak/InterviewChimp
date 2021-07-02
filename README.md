@@ -21,7 +21,7 @@ InterviewChimp is a mailing service made for the people who want to fast track t
 ### 3.Setting: Reset Username/Reset Password/Reset Email/Reset Email Links
 ### 4.Mailing Service to all the users ( Sending a question daily through interviewchimp@gmail.com)
 ### 5.Showing the Question received when the user is logged in 
-### 6.Django admin panel contro
+### 6.Django admin panel control
 ### 7.Suggesting Resources to Study (Blogs) 
 
 
