@@ -67,8 +67,8 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'interviewchimp@gmail.com'
-EMAIL_HOST_PASSWORD ='interviewChimp69'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD =''
 EMAIL_PORT = 587
 
 
@@ -147,6 +147,4 @@ LOCALE_PATHS = [
 ]
 
 
-MAILCHIMP_API_KEY           = "d697b1dbc0b8bdcc93de26fdd2c4bf2a-us2"
-MAILCHIMP_DATA_CENTER       = 'us2'
-MAILCHIMP_EMAIL_LIST_ID     = 'bf88baf155'
+
